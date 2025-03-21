@@ -1,17 +1,15 @@
-const codes = document.querySelectorAll(".code");
-console.log(codes)
-codes[0].focus();  
+const codes = document.querySelectorAll('.code');
+codes[0].focus();
 
 codes.forEach((code, idx) => {
-	code.addEventListener("input", (e) => {
-		if(e.target.value.length === 1 && idx < codes.length - 1){
-			codes[idx + 1].focus();
+	code.addEventListener("input", (event) => {
+		if(event.target.value.length === 1 && idx < codes.length - 1){
+			codes[idx+1].focus()
 		}
-	}) 
-
-	code.addEventListener("keydown", (e) => {
-		if(e.key === "Backspace" && !e.target.value && idx > 0){
+	})
+	code.addEventListener("keydown", (event) => {
+		if(event.key === 'Backspace' && !event.target.value && idx > 0) {
 			codes[idx - 1].focus();
 		}
-	}) 
+	})
 })
